@@ -1,0 +1,11 @@
+\BOOKMARK [1][-]{section.1}{Outline:}{}% 1
+\BOOKMARK [1][-]{section.2}{Circuit:}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Solenoids:}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Resistor Values:}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Diodes:}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{LEDs:}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Control:}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{Arduino Code:}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Max/MSP Patch Example:}{section.3}% 9
+\BOOKMARK [1][-]{section.4}{Dynamics:}{}% 10
+\BOOKMARK [1][-]{section.5}{Future Improvements:}{}% 11
