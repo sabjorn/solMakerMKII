@@ -1,0 +1,14 @@
+Troubleshooting Guide:
+
+LEDs:
+The circuit is designed so that even if there is no external power, the Arduino's power will still light up the LEDs when it receives a valid message. The circuit was designed like this to enable the user to quickly troubleshoot problems.
+
+If LEDs do not operate, check to make sure that the serial receive ('rx') light is operating on the Arduino when a signal is sent via USB. If no message is being sent, try changing the serial port in the solMakerMKIIMidiControl.maxpat (patch can be edited using text editor. The Serial object is set to port 'a', try ports 'b', 'c', etc). If the Arduino software serial monitor window is open, the maxpatch will not work.
+
+If the Arduino's serial receive light is operating there may be a problem with the connection between the Arduino and the board or there may be issues with the soldering, or the installation, of components (specifically LED-R1 through LED-R12 and LED1 through LED12).
+
+Not Current Output:
+
+If the LEDs are working and there is no current coming out of the board (sol1 through sol12) then the power supply connection should be checked first. If the power supply is connected properly and operating normally, the TIP120 transistors may be wired backwards (although this is not likely the case because a revered current will usually cause the transistors to burn out) or may not have a solid connection. The resistors attached to the TIP120s (R1 through R12) may also have poor connections. 
+
+It is unclear what may happen if the diodes (D1 through D12) are connected backwards. The TIP120 transistors are likely to be damaged.

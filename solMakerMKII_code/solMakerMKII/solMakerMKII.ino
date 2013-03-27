@@ -1,5 +1,6 @@
-/*solMakerMKII
-Copyright 2013, Steven A. Bj¿rnson
+/*
+solMakerMKII
+Copyright 2013, Steven A. Bjï¿½rnson
 
 based on code by Chris Vecchio, 2010 (http://www.noisemantra.com/Physical%20Computing/arduino-MaxMSP%20communications%2011.pdf).
 
@@ -25,22 +26,6 @@ int index = 0;
 // channels represent HIGH/LOW state of each output
 int channelA, channelB, channelC, channelD, channelE, channelF, channelG, channelH, channelI, channelJ, channelK, channelL;
 
-int highLowDeterm(int x) // converts int into HIGH or LOW for digitalWrite
-{
-  int returnValue;
-  
-  if(x > 0)
-  {
-    returnValue = 0x1;
-  }
-  else
-  {
-    returnValue = 0x0;
-  } 
-  
-  return returnValue;
-}
-
 void setup()   
 {                
   Serial.begin(115200);
@@ -62,51 +47,51 @@ void loop()
     }
     else if (buffer[index-1] == 97) // checks for ASCII code 'a'
     {
-      channelA = highLowDeterm(atoi(buffer)); // if 'a' convert input to int and convert to HIGH/LOW
+      channelA = atoi(buffer); // if 'a' convert input to int
     }
     else if (buffer[index-1] == 98)
     {
-      channelB = highLowDeterm(atoi(buffer));
+      channelB = atoi(buffer);
     }
     else if (buffer[index-1] == 99)
     {
-      channelC = highLowDeterm(atoi(buffer));
+      channelC = atoi(buffer);
     }
     else if (buffer[index-1] == 100)
     {
-      channelD = highLowDeterm(atoi(buffer));
+      channelD = atoi(buffer);
     }
     else if (buffer[index-1] == 101)
     {
-      channelE = highLowDeterm(atoi(buffer));
+      channelE = atoi(buffer);
     }
     else if (buffer[index-1] == 102)
     {
-      channelF = highLowDeterm(atoi(buffer));
+      channelF = atoi(buffer);
     }
     else if (buffer[index-1] == 103)
     {
-      channelG = highLowDeterm(atoi(buffer));
+      channelG = atoi(buffer);
     }
     else if (buffer[index-1] == 104)
     {
-      channelH = highLowDeterm(atoi(buffer));
+      channelH = atoi(buffer);
     }
     else if (buffer[index-1] == 105)
     {
-      channelI = highLowDeterm(atoi(buffer));
+      channelI = atoi(buffer);
     }
     else if (buffer[index-1] == 106)
     {
-      channelJ = highLowDeterm(atoi(buffer));
+      channelJ = atoi(buffer);
     }
     else if (buffer[index-1] == 107)
     {
-      channelK = highLowDeterm(atoi(buffer));
+      channelK = atoi(buffer);
     }
     else if (buffer[index-1] == 108)
     {
-      channelL = highLowDeterm(atoi(buffer));
+      channelL = atoi(buffer);
     }
     
   } while (buffer[index-1] != 32);

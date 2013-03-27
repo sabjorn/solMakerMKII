@@ -1,0 +1,11 @@
+Quick Start Guide
+
+1) Order PCB. The 'solMakerMKII_circuit' directory contains all the files for this. The Gerber directory contains the exported circuit (gerber files) created using Fritzing (open source PCB design software).
+
+2) Assemble board. The 'solMakerMKII_diagrams' directory contains the specs for all the required components. A DC power supply will be required (voltage and maximum current will depend on the items being controlled by the circuit). Solenoids, or other DC powered items, will need to be found. The type of connectors used to attach the power supply and solenoids to the PCB will also be determened based on the context of the situationâ any type of connector you choose should work.
+
+3) Flash the Arduino. The 'solMakerMKII_code' directory contains a directory called 'solMakerMKII' which houses the Arduino's code. The PCB is designed for an Arduino Uno and, with standard headers, should attach very easily to the back of the board.
+
+4) Open 'sol-MakerMKIIControl.maxpat'. This file is contained in the 'solMakerMKII_code' directory. It acts as a midi decoder. If you do not have Max/MSP, a free runtime can be download which will allow you to use the patch. Make sure the Arduino is connected, and recognized by your computer, via USB AND that no other task (i.e. Arduino serial window) is reading the Arduino's serial messages. Once the maxpatch is opened, the midi input can be changed to receive from any midi device or software (i.e. Ableton live). The Arduino code accepts midi notes 97 to 108 (inclusive) with standard velocity values when coupled with the maxpatch. If you have issue connecting to the Arduino with the patch, the Serial object may not be connecting to the right port. Open the maxpatch (with the max editor or with a simple text editor) and change the letter to the right of the word Serial (in the patch it should be automatically set to 'a'); experiment with letters in sequence until the Arduino responds (i.e. 'b', else 'c', else 'd', etc).
+
+5) Have fun.

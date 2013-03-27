@@ -114,13 +114,13 @@ Any solenoid with a voltage range of 12 to 24 volts should work with this circui
 
 \subsection{Resistor Values:}
 \begin{itemize}
-\item R1 through R12 - 2.2kOhm
-\item LED-R1 through LED-R12 - ?
+\item R1 through R12 - 2.2 kOhm.
+\item LED-R1 through LED-R12 - 100 Ohm.
 \end{itemize}
 
 \subsection{Diodes:}
 \begin{itemize}
-\item D1 through D12 - ?
+\item D1 through D12 - 1N4001 or other suitable diode.
 \end{itemize}
 
 \subsection{LEDs:}
@@ -130,12 +130,14 @@ Any solenoid with a voltage range of 12 to 24 volts should work with this circui
 
 \section{Control:}
 Control is possible utilizing the USB port on the Arduino. The code (outline below) allows the user to send an on/off byte to each solenoid individually by coupling the byte with an address. Thus, although Max/MSP has been utilized for control, any programming language or software can be used as long as the following serial message format is maintained:
+\singlespacing{
+\textbf{	
+\\ on/off byte (ascii character 48 for 0 and ascii character 49 for 1) + \\ 
+solenoid channel byte (ascii value from 'a' to 'l'; 97 to 108) +  \\ 32 (ascii value for blank space) + \\ 13 (ascii value for carriage return)}}
 
-%\begin{verbatim}
-\textbf{on/off byte (ascii character 48 for 0 and ascii character 49 for 1) +  solenoid channel byte (ascii value from 'a' to 'l'; 97 to 108) +  32 (ascii value for blank space) + 13 (ascii value for carriage return)}
-
-example: 0 97 32 13 will cause solenoid \#1 to turn off.
-%\end{verbatim}
+example: 49 97 32 13 will cause solenoid \#1 to turn on. Sending 48 97 32 13 will then cause it to turn off.
+\\
+\\
 
 \subsection{Arduino Code:}
 \begin{lstlisting}
@@ -145,22 +147,6 @@ int index = 0;
 // channels represent HIGH/LOW state of each output
 int channelA, channelB, channelC, channelD, channelE, channelF, 
 channelG, channelH, channelI, channelJ, channelK, channelL;
-
-int highLowDeterm(int x) // converts int into HIGH or LOW for digitalWrite
-{
-  int returnValue;
-  
-  if(x > 0)
-  {
-    returnValue = 0x1;
-  }
-  else
-  {
-    returnValue = 0x0;
-  } 
-  
-  return returnValue;
-}
 
 void setup()   
 {                
@@ -174,7 +160,7 @@ void setup()
 void loop()                     
 {
   index = 0;
-  do
+ do
   {
     buffer[index] = Serial.read();  // get a byte from the serial port
     if (buffer[index]!=-1)
@@ -183,52 +169,51 @@ void loop()
     }
     else if (buffer[index-1] == 97) // checks for ASCII code 'a'
     {
-     // if 'a' convert input to int and convert to HIGH/LOW
-      channelA = highLowDeterm(atoi(buffer)); 
+      channelA = atoi(buffer); // if 'a' convert input to int
     }
     else if (buffer[index-1] == 98)
     {
-      channelB = highLowDeterm(atoi(buffer));
+      channelB = atoi(buffer);
     }
     else if (buffer[index-1] == 99)
     {
-      channelC = highLowDeterm(atoi(buffer));
+      channelC = atoi(buffer);
     }
     else if (buffer[index-1] == 100)
     {
-      channelD = highLowDeterm(atoi(buffer));
+      channelD = atoi(buffer);
     }
     else if (buffer[index-1] == 101)
     {
-      channelE = highLowDeterm(atoi(buffer));
+      channelE = atoi(buffer);
     }
     else if (buffer[index-1] == 102)
     {
-      channelF = highLowDeterm(atoi(buffer));
+      channelF = atoi(buffer);
     }
     else if (buffer[index-1] == 103)
     {
-      channelG = highLowDeterm(atoi(buffer));
+      channelG = atoi(buffer);
     }
     else if (buffer[index-1] == 104)
     {
-      channelH = highLowDeterm(atoi(buffer));
+      channelH = atoi(buffer);
     }
     else if (buffer[index-1] == 105)
     {
-      channelI = highLowDeterm(atoi(buffer));
+      channelI = atoi(buffer);
     }
     else if (buffer[index-1] == 106)
     {
-      channelJ = highLowDeterm(atoi(buffer));
+      channelJ = atoi(buffer);
     }
     else if (buffer[index-1] == 107)
     {
-      channelK = highLowDeterm(atoi(buffer));
+      channelK = atoi(buffer);
     }
     else if (buffer[index-1] == 108)
     {
-      channelL = highLowDeterm(atoi(buffer));
+      channelL = atoi(buffer);
     }
     
   } while (buffer[index-1] != 32);
