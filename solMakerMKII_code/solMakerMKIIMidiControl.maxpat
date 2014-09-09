@@ -8,7 +8,7 @@
 			"architecture" : "x86"
 		}
 ,
-		"openrect" : [ 64.0, 60.0, 464.0, 298.0 ],
+		"openrect" : [ 64.0, 60.0, 461.0, 440.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -28,6 +28,22 @@
 		"digest" : "",
 		"tags" : "",
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-2",
+					"maxclass" : "kslider",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"offset" : 60,
+					"outlettype" : [ "int", "int" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 18.0, 520.0, 84.0, 53.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 86.0, 300.0, 231.0, 133.0 ],
+					"range" : 12
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
@@ -298,7 +314,7 @@
 					"patching_rect" : [ 209.0, 319.0, 69.0, 27.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 215.0, 89.0, 69.0, 27.0 ],
-					"text" : "64"
+					"text" : "60"
 				}
 
 			}
@@ -443,7 +459,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 15.0, 15.0, 394.0, 289.0 ],
+									"patching_rect" : [ 15.0, 15.0, 394.0, 296.0 ],
 									"text" : "Copyright September 2013, Steven A. Bjornson\n\ndistributed under the terms of the GNU General Public License.\n\nThis file is part of SolMakerMKII.\n\nSolMakerMII is free software (and hardware): you can redistribute i t and/or modify\n\nIit under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.\n\nSolMakerMKII is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  \n\nSee the GNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License along with SolMakerMKII.  If not, see <http://www.gnu.org/licenses/>."
 								}
 
@@ -525,7 +541,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 15.0, 320.099976, 54.0, 20.0 ],
-					"text" : "zl.rot +1"
+					"text" : "zl rot +1"
 				}
 
 			}
@@ -928,6 +944,24 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-18", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-53", 1 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-2", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-53", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-2", 0 ]
 				}
 
 			}
