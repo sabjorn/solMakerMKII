@@ -282,7 +282,7 @@
 					"patching_rect" : [ 287.0, 319.0, 68.0, 27.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 316.0, 89.0, 68.0, 27.0 ],
-					"text" : "127"
+					"text" : "55"
 				}
 
 			}
@@ -298,7 +298,7 @@
 					"patching_rect" : [ 209.0, 319.0, 69.0, 27.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 215.0, 89.0, 69.0, 27.0 ],
-					"text" : "97"
+					"text" : "64"
 				}
 
 			}
