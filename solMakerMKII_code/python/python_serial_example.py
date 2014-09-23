@@ -26,8 +26,10 @@ import sys
 velocity = 60 #Length of time solenoids are turned on for (ms).
 t = 500 #time between note hits (ms).
 cycles = 4 #Number of times code will loop
-port = '/dev/tty.usbmodemfa131'
+#port = '/dev/tty.usbmodemfa131'
 baud = 115200
+
+port = raw_input("Enter Port Location (e.g. /dev/tty.usbmodemfa131):")
 
 arduino = Serial(port, baud)
 
